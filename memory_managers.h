@@ -6,7 +6,7 @@
 /*   By: mmostafa <mmostafa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:15:56 by mmostafa          #+#    #+#             */
-/*   Updated: 2020/09/24 15:47:26 by mmostafa         ###   ########.fr       */
+/*   Updated: 2020/09/29 02:03:04 by mmostafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@
 #define	SECOND_SMALL	0b1
 #define	SECOND_TINY		0b10
 #define MAX_MALLOCS 128
-char 	g_second_alloc = 0;
+char 	g_second_alloc;
 
 typedef struct s_mem
 {
 	struct	s_mem *next;
 	struct	s_mem *prev;
 	size_t	size;
+	char	is_empty;
 	void	*ptr;
 }			t_mem;
 
@@ -49,6 +50,14 @@ typedef struct  s_params
 	int		pointer_size;
 	int 	zone_size;
 }			t_params;
+
+void	*ft_malloc(size_t size);
+
+
+void	*ft_tiny(size_t size);
+void	*ft_small(size_t size);
+void	*ft_large(size_t size);
+
 
 
 void	*mini_mmap(size_t size, void *add);
