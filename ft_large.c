@@ -6,7 +6,7 @@
 /*   By: mmostafa <mmostafa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:44:37 by mmostafa          #+#    #+#             */
-/*   Updated: 2020/09/24 15:48:56 by mmostafa         ###   ########.fr       */
+/*   Updated: 2020/10/01 23:18:08 by mmostafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void       *ft_large(size_t size)
 {
-    return (mini_mmap(size, 0));
+    return (mini_malloc(size, 0));
 }

@@ -6,42 +6,30 @@
 /*   By: mmostafa <mmostafa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:25:01 by mmostafa          #+#    #+#             */
-/*   Updated: 2020/09/29 02:02:06 by mmostafa         ###   ########.fr       */
+/*   Updated: 2020/10/01 23:11:11 by mmostafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_managers.h"
 
 
-static t_mem   *ceate_tiny_list(size_t size)
+static void     create_tiny_list()
 {
-    size = 0;
+    t_mem   *tiny;
+
+    tiny = g_zones.tinies.zone;
+}
+
+static void    *search_in_tiny_list()
+{
     return (NULL);
 }
 
-static void    *search_in_tiny_list(t_mem *tiny, size_t size)
+void    *ft_tiny()
 {
-    tiny = NULL;
-    size = 0;
-    return (NULL);
-}
-
-void    *ft_tiny(size_t size)
-{
-    t_mem   *zone;
-
-    zone = NULL;
-    if ((g_second_alloc & SECOND_TINY) == SECOND_TINY)
-	{
-		return (search_in_tiny_list(zone, size));
-		printf("2ND\n");
-	}
-	else	
-    {
-
-		zone = ceate_tiny_list(size);
-		g_second_alloc = 2;
-		printf("1ST\n");
-	}
+    if (g_zones.tinies.zone)
+		return (search_in_tiny_list());
+	create_tiny_list();
+    //return (g_zones.tinies.zone);
     return (NULL);
 }
