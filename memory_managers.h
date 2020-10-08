@@ -6,7 +6,7 @@
 /*   By: mmostafa <mmostafa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:15:56 by mmostafa          #+#    #+#             */
-/*   Updated: 2020/10/02 20:50:25 by mmostafa         ###   ########.fr       */
+/*   Updated: 2020/10/08 18:38:49 by mmostafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 #define MEMORY_MANAGERS_H
 
 #include <sys/mman.h>
-#include <string.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 
-#define	SMALL_FACTOR	16
-#define	TINY_FACTOR		4
-#define	SECOND_SMALL	0b1
-#define	SECOND_TINY		0b10
-#define MAX_MALLOCS 128
+#define MAX_MALLOCS 5
+#define	TINY_SIZE	(4 * getpagesize()) / MAX_MALLOCS 
+#define	SMALL_SIZE	(16 * getpagesize()) / MAX_MALLOCS 
 
 typedef struct s_mem
 {

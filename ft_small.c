@@ -6,7 +6,7 @@
 /*   By: mmostafa <mmostafa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:36:23 by mmostafa          #+#    #+#             */
-/*   Updated: 2020/10/03 00:58:03 by mmostafa         ###   ########.fr       */
+/*   Updated: 2020/10/03 14:31:11 by mmostafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void   create_small_list()
     smalls = g_zones.smalls;
     smalls->zone = (t_mem *)mini_malloc(sizeof(t_mem), 0);
     small = smalls->zone;
-    small->ptr = mini_malloc(small->size, 0);
+    small->ptr = mini_malloc(SMALL_SIZE, 0);
     small->is_empty = 'F';
     small->size = g_zones.requested_size;
     small->prev = NULL;
@@ -35,9 +35,9 @@ static void   create_small_list()
     while (i < MAX_MALLOCS)
     {
         small = small->next;
-        small->ptr = mini_malloc(small->size, 0);
+        small->ptr = mini_malloc(SMALL_SIZE, 0);
         small->is_empty = 'E';
-        small->size = g_zones.requested_size;
+        small->size = SMALL_SIZE;
         small->next = (t_mem *)mini_malloc(sizeof(t_mem), 0);
         small->next->prev = small;
         i++;
@@ -65,6 +65,7 @@ static void    *search_in_small_list()
             if (small_head->is_empty == 'E')
             {
                 small_head->is_empty = 'F';
+                small_head->size = g_zones.requested_size;
                 return (small_head->ptr);
             }
             small_head = small_head->next;
