@@ -6,11 +6,13 @@
 /*   By: mmostafa <mmostafa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:16:15 by mmostafa          #+#    #+#             */
-/*   Updated: 2020/10/02 21:01:52 by mmostafa         ###   ########.fr       */
+/*   Updated: 2020/10/16 00:12:33 by mmostafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "memory_managers.h"
+
+t_zones	 g_zones = {0, 0, NULL, NULL, NULL, NULL};
 
 void *ft_malloc(size_t size)
 {

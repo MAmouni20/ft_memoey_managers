@@ -1,0 +1,8 @@
+#!/bin/bash
+GREEN="\033[1;32m"
+NOCOLOR="\033[0m"
+echo -e "${GREEN}"
+make re
+gcc -I inc libft_malloc.so main.c
+echo -e "${NOCOLOR}"
+./a.out

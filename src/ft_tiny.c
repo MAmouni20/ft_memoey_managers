@@ -6,7 +6,7 @@
 /*   By: mmostafa <mmostafa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:25:01 by mmostafa          #+#    #+#             */
-/*   Updated: 2020/10/03 15:10:53 by mmostafa         ###   ########.fr       */
+/*   Updated: 2020/10/15 15:50:28 by mmostafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void     create_tiny_list()
 	{
 		tiny = tiny->next;
 		tiny->ptr = mini_malloc(TINY_SIZE, 0);
-		tiny->is_empty = 'F';
+		tiny->is_empty = 'E';
 		tiny->size = TINY_SIZE;
 		tiny->next = (t_mem *)mini_malloc(sizeof(t_mem), 0);
 		tiny->next->prev = tiny;
@@ -80,7 +80,9 @@ static void    *search_in_tiny_list()
 			break ;
 		}
 		tinies_head = tinies_head->next;
+		tiny_head = tinies_head->zone;
 	}
+	printf("in searching %p\n", tinies_head->next->zone->ptr);
 	return (tinies_head->next->zone->ptr);
 }
 

@@ -6,16 +6,21 @@
 #    By: mmostafa <mmostafa@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/10 01:53:49 by mmostafa          #+#    #+#              #
-#    Updated: 2020/10/10 15:06:16 by mmostafa         ###   ########.fr        #
+#    Updated: 2020/10/16 00:12:55 by mmostafa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+ifeq ($(HOSTTYPE),)
+HOSTTYPE := $(shell uname -m)_$(shell uname -s)
+endif
 
 LIB_DIR = libft_malloc_$$HOSTTYPE
 LIB_NAME = $(LIB_DIR)/$(LIB_DIR).so
 LIB_LINK = libft_malloc.so
 
-SRC = ft_large.c ft_malloc.c ft_small.c ft_tiny.c ft_tools.c
-OBJ = obj/ft_large.o obj/ft_malloc.o obj/ft_small.o obj/ft_tiny.o obj/ft_tools.o 
+SRC = ft_large.c ft_malloc.c ft_small.c ft_tiny.c ft_tools.c ft_free.c
+OBJ = obj/ft_large.o obj/ft_malloc.o obj/ft_small.o obj/ft_tiny.o obj/ft_tools.o\
+obj/ft_free.o
 
 SRCDIR = ./src/
 INC = ./inc/

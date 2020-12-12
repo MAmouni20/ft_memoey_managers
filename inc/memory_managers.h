@@ -6,7 +6,7 @@
 /*   By: mmostafa <mmostafa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/24 15:15:56 by mmostafa          #+#    #+#             */
-/*   Updated: 2020/10/10 14:51:38 by mmostafa         ###   ########.fr       */
+/*   Updated: 2020/10/16 00:20:41 by mmostafa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,16 @@ typedef struct s_zone
 typedef struct s_zones
 {
 	size_t	requested_size;
+	int		page_size;
+	char	*to_free;
 	t_zone 	*tinies;
 	t_zone	*smalls;
 	t_zone	*larges;
-	int		page_size;
 }							t_zones;
 
 
 void	*ft_malloc(size_t size);
+void	ft_free(void *ptr);
 
 
 void	*ft_tiny();
@@ -58,5 +60,5 @@ void	*ft_large();
 
 void	*mini_malloc(size_t size, void *add);
 
-t_zones	g_zones;
+extern t_zones	 g_zones;
 #endif
